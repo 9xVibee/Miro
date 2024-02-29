@@ -2,6 +2,8 @@
 
 import React from "react";
 import EmptySearch from "./empty-search";
+import EmptyFavorites from "./empty-favorites";
+import EmptyBoard from "./empty-board";
 
 interface BoardListProps {
   orgId: string;
@@ -19,11 +21,11 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
   }
 
   if (!data.length && query.favorites) {
-    return <div>No Favorites</div>;
+    return <EmptyFavorites />;
   }
 
   if (!data.length) {
-    return <div>No boards at all</div>;
+    return <EmptyBoard />;
   }
 
   return <div>{JSON.stringify(query)}</div>;
