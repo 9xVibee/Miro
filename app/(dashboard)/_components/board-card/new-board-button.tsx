@@ -28,7 +28,7 @@ const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
       onClick={handleCreateBoard}
       className={cn(
         "col-span-1 aspect-[100/127] bg-blue-600 hover:bg-blue-800 rounded-lg transition-colors flex flex-col items-center justify-center py-6",
-        (loading || disabled) && "opacity-75"
+        (loading || disabled) && "opacity-75 bg-blue-600 cursor-not-allowed"
       )}
     >
       <Plus className="h-12 w-12 text-white stroke-1" />
