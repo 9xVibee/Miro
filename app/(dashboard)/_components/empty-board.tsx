@@ -10,10 +10,12 @@ import { useApiMutation } from "@/hooks/use-api-mutation";
 import Image from "next/image";
 import React from "react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const EmptyBoard = () => {
   const { organization } = useOrganization();
   const { loading, mutate } = useApiMutation(api.board.create);
+  const router = useRouter();
 
   const onClick = () => {
     if (!organization) return;
@@ -24,7 +26,7 @@ const EmptyBoard = () => {
     })
       .then((id) => {
         toast.success("Board Created");
-        // TODO : Redirect to board
+        router.push("/boards/" + id);
       })
       .catch(() => {
         toast.error("Failed to create board");
